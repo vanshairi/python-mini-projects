@@ -12,8 +12,13 @@ seconds = int(input("Enter seconds : "))
 
 total_time = hours * 3600 + minutes * 60 + seconds
 pygame.mixer.music.play(loops=-1)
-time.sleep(total_time)
 
+for x in range(total_time, 0, -1):
+    seconds = x%60
+    minutes = int(x/60)%60
+    hours = int(x/3600)%24
+    print(f"{hours:02}:{minutes:02}:{seconds:02}")
+    time.sleep(1)
 print("TIME'S UP!")
 pygame.mixer.music.stop()
 
